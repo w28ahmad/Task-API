@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 // const validator = require('validator')
 
-const Task = mongoose.model('Discription',{
+const Task = mongoose.model('Tasks',{
     discription:{
         type: String,
         trim: true,
@@ -10,6 +10,11 @@ const Task = mongoose.model('Discription',{
     completed:{
         type: Boolean,
         default: false
+    },
+    owner:{
+        type:mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'User'
     }
 })
 

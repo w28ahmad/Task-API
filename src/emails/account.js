@@ -2,6 +2,7 @@ const sgmail = require('@sendgrid/mail')
 
 sgmail.setApiKey(process.env.SENDGRID_API_KEY)
 
+// Signup Welcome Email
 const sendWelcomeEmail = (email, name) => {
     sgmail.send({
         to: email,
@@ -11,6 +12,7 @@ const sendWelcomeEmail = (email, name) => {
     })
 }
 
+// Exit email
 const GoodbyeEmail = (email, name) => {
     sgmail.send({
         to: email,

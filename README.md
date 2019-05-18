@@ -6,7 +6,7 @@
 * [Dependencies](#dependencies)
 * [Future](#future)
 
-
+---
 ### Installation
 This API is publicly available at https://task-manager-api-ahmad.herokuapp.com, you can run it through postman or implement it in your Web App.
 
@@ -15,15 +15,21 @@ OR
 ```console
 git clone https://github.com/w28ahmad/Task-Manager-API.git && cd Task-Manager-API
 ```
-
+---
 ### Routes
-* [Create an account](#create-an-account)
+* [Create a User Account](#create-a-user-account)
+* [Login to your user accout](#log-in-to-your-account)
+* [Create a Task](#create-task)
+* [Update a Task](#update-a-task)
 * [Delete a Task](#delete-a-task)
-* [Documentation](#documentation)
-* [Dependencies](#dependencies)
-* [License](#license)
+* [Read a Task](#read-a-task)
+* [Update a User](#update-a-user)
+* [Delete a User](#delete-a-user)
+* [Read a Task](#read-a-task)
+* [Read your User Details](#read-your-user-profile)
+* [Logout](#logout)
 
-#### Create an account
+#### Create a User account
 Create an account to hold your tasks details. These user details are going to securely stored in a MongoDB Database.
 ```
 POST: https://task-manager-api-ahmad.herokuapp.com/users
@@ -79,9 +85,9 @@ PATCH: https://task-manager-api-ahmad.herokuapp.com/tasks/{task_id}
 {
 	"discription": "Finish the Task Manager REST API",
 	"completed" : true
-	//setting that task to true, you don't need to specify discription, I did it for the expample
 }
 ```
+> Note: Setting that task to true, you don't need to specify discription, I did it for the expample
 
 #### Delete a Task
 If you need to delete a task you can use the following route:
@@ -175,6 +181,8 @@ DELETE: https://task-manager-api-ahmad.herokuapp.com/users/me/avatar
 ```
 The image is going to be resized and cropped, and then the binary will be stored in the Database. 
 
+---
+
 ### Dependencies
 1. Express
 2. Multer
@@ -185,6 +193,8 @@ The image is going to be resized and cropped, and then the binary will be stored
 7. jsonwebtoken
 8. bcryptjs
 9. @sendgrid/mail
+
+---
 
 ### Future
 In the future, I hope to use React and angular to create a front end that interacts with this REST API.

@@ -15,6 +15,27 @@ OR
 ```console
 git clone https://github.com/w28ahmad/Task-Manager-API.git && cd Task-Manager-API
 ```
+To run this locally, you are going to need to create a config folder containing a dev.env file. This file will contain all the environment variables used in this REST API. 
+```console
+mkdir config & cd config & touch dev.env
+```
+In the dev.env file you are going to need the following enviroment variables:
+1. PORT
+Can me anything you prefer, I usually go for 3000
+2. SENDGRID_API_KEY
+This is for the automated emails welcoming the user when they create an account or saying goodbye when they delete their account. You can choose to ignore this environment variable everyting should still work fine.
+3.  JWT_SECRET
+This could be ay set of characters (without spaces)
+4. MONGODB_URL=mongodb://127.0.0.1:27017/task-manager-api
+You going to have to setup and connect to local mongoDB instance for this to work
+
+Now you can run the REST API
+
+```
+npm run dev
+```
+Feel free to test any of the routes using Postman
+
 ---
 ### Routes
 * [Create a User Account](#create-a-user-account)
@@ -29,7 +50,7 @@ git clone https://github.com/w28ahmad/Task-Manager-API.git && cd Task-Manager-AP
 * [Read your User Details](#read-your-user-profile)
 * [Logout](#logout)
 
-#### Create a User account
+#### Create a User Account
 Create an account to hold your tasks details. These user details are going to securely stored in a MongoDB Database.
 ```
 POST: https://task-manager-api-ahmad.herokuapp.com/users
@@ -44,7 +65,7 @@ POST: https://task-manager-api-ahmad.herokuapp.com/users
 }
 ```
 
-#### Login to your account
+#### Login to your Account
 If you create an account you are automatically logged in. However, if you need to login you use the folloring route.
 ```
 POST: https://task-manager-api-ahmad.herokuapp.com/users/login
@@ -124,7 +145,7 @@ This filters out the uncompleted tasks. Likewise setting completed to true will 
 ```
 GET: https://task-manager-api-ahmad.herokuapp.com/tasks?skip=3&limit=2&completed=false&sortBy=createdAt:desc
 ```
-#### Update a user
+#### Update a User
 You are able to update the details of a user using:
 ```
 PATCH: https://task-manager-api-ahmad.herokuapp.com/users/me
@@ -197,4 +218,4 @@ The image is going to be resized and cropped, and then the binary will be stored
 ---
 
 ### Future
-In the future, I hope to use React and angular to create a front end that interacts with this REST API.
+In the future, I hope to use React and Angular to create a front end that interacts with this REST API.

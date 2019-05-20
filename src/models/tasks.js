@@ -1,8 +1,10 @@
 const mongoose = require('mongoose')
-// const validator = require('validator')
 
-
-const userSchema = new mongoose.Schema({
+/*
+Tasks model will consist of discription, weather or not the task is completed and an owner
+The owner the user that created that task, the ref is a reference to the User model
+*/
+const taskSchema = new mongoose.Schema({
 
     discription:{
         type: String,
@@ -23,7 +25,7 @@ const userSchema = new mongoose.Schema({
     timestamps: true
 })
 
-const Task = mongoose.model('Tasks', userSchema)
+const Task = mongoose.model('Tasks', taskSchema)
 
 
 module.exports = Task

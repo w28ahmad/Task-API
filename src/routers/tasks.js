@@ -18,10 +18,13 @@ router.post('/tasks', auth, async(req, res)=>{
     }
 })
 
-// GET /tasks?completed=true
-// limit and skip, /tasks?limit=10?skip=10
-// GET /tasks?sortBy=CreatedAt:asc
-// GET /tasks?sortBy=CreatedAt:desc
+/*
+This route return all the tasks for you user and you can filter, paginate and sort these tasks depending on your preferences
+GET /tasks?completed=true
+limit and skip, /tasks?limit=10?skip=10
+GET /tasks?sortBy=CreatedAt:asc
+GET /tasks?sortBy=CreatedAt:desc
+*/
 router.get('/tasks', auth, async(req, res)=>{
     const match = {}
     const sort = {}
@@ -36,6 +39,7 @@ router.get('/tasks', auth, async(req, res)=>{
     }
     
     try{
+        // Matchs tasks to users
         await req.user.populate({
             path: 'tasks',
             match,
@@ -53,7 +57,7 @@ router.get('/tasks', auth, async(req, res)=>{
 
 })
 
-
+// gets tasks using thier id
 router.get('/tasks/:id', auth, async(req, res)=>{
     const _id = req.params.id
 
@@ -68,6 +72,7 @@ router.get('/tasks/:id', auth, async(req, res)=>{
     }
 })
 
+// Change or edit an already created task task
 router.patch("/tasks/:id", auth, async(req, res)=>{
     const updates = Object.keys(req.body)
     const allowedUpdates = ["completed", "discription"]
@@ -99,6 +104,7 @@ router.patch("/tasks/:id", auth, async(req, res)=>{
     }
 })
 
+// Delete a task by Id
 router.delete("/tasks/:id", auth, async(req,res)=>{
     try{
         const task = await Task.findOneAndDelete({_id:req.params.id, owner:req.user._id})

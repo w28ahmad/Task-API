@@ -2,7 +2,10 @@ const sgmail = require('@sendgrid/mail')
 
 sgmail.setApiKey(process.env.SENDGRID_API_KEY)
 
-// Signup Welcome Email
+/* 
+Signup Welcome Email
+Welcomes the user to our service
+*/
 const sendWelcomeEmail = (email, name) => {
     sgmail.send({
         to: email,
@@ -12,13 +15,16 @@ const sendWelcomeEmail = (email, name) => {
     })
 }
 
-// Exit email
+/* 
+Exit email
+If the user decides to quit our service by deleting their account this goodBye email is sent
+*/
 const GoodbyeEmail = (email, name) => {
     sgmail.send({
         to: email,
         from: 'w28ahmad@uwaterloo.ca',
         subject: 'GoodBye',
-        text: `Goodbye, ${name}. Is there anything we could of done to keep you keep you onboard?`
+        text: `Goodbye, ${name}. Is there anything we could of done to keep you onboard?`
     })
 }
 

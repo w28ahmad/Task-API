@@ -158,7 +158,6 @@ router.delete('/users/me/avatar', auth, async(req, res)=>{
 
 // An public route used to test avatars and show them in the web
 router.get('/users/:id/avatar', async(req, res)=>{
-    console.log("hi")
     try{
         const user = await User.findById(req.params.id)
 

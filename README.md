@@ -8,14 +8,14 @@
 
 ---
 ### Installation
-This API is publicly available at https://task-manager-api-ahmad.herokuapp.com, you can run it through postman or implement it in your Web App.
+This API is publicly available at https://task-manager-api-ahmad.herokuapp.com, you can test it through postman or implement it in a Web App.
 
-OR
+##### Run it locally
 
 ```console
 git clone https://github.com/w28ahmad/Task-Manager-API.git && cd Task-Manager-API
 ```
-To run this locally, you are going to need to create a config folder containing a dev.env file. This file will contain all the environment variables used in this REST API. 
+You are going to need to create a config folder containing a dev.env file. This file will contain all the environment variables used in this REST API. 
 ```console
 mkdir config & cd config & touch dev.env
 ```
@@ -23,7 +23,7 @@ In the dev.env file you are going to need the following enviroment variables:
 1. PORT
 Can me anything you prefer, I usually go for 3000
 2. SENDGRID_API_KEY
-This is for the automated emails welcoming the user when they create an account or saying goodbye when they delete their account. You can choose to ignore this environment variable everyting should still work fine.
+This is for the automated emails welcoming the user when they create an account or saying goodbye when they delete their account. You can choose to ignore this environment variable everything should still work fine.
 3.  JWT_SECRET
 This could be ay set of characters (without spaces)
 4. MONGODB_URL=mongodb://127.0.0.1:27017/task-manager-api
